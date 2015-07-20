@@ -16,7 +16,6 @@
   <description>Integration tests suite</description>
 
   <modules>
-  <!-- this module has a problem on deployment to nexus, because it skips deployment -->
-<!--     <module>handlebars-without-rhino</module> -->
+    <module>handlebars-without-rhino</module>
   </modules>
 </project>
