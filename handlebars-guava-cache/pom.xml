@@ -3,20 +3,20 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <parent>
-    <groupId>com.github.jknack</groupId>
+    <groupId>com.aperto</groupId>
     <artifactId>handlebars.java</artifactId>
     <version>2.2.3-SNAPSHOT</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.github.jknack</groupId>
+  <groupId>com.aperto</groupId>
   <artifactId>handlebars-guava-cache</artifactId>
 
   <name>Handlebars Guava Cache</name>
 
   <dependencies>
     <dependency>
-      <groupId>com.github.jknack</groupId>
+      <groupId>com.aperto</groupId>
       <artifactId>handlebars</artifactId>
       <version>${project.version}</version>
     </dependency>
@@ -36,7 +36,7 @@
 
     <!-- Test dependencies -->
     <dependency>
-      <groupId>com.github.jknack</groupId>
+      <groupId>com.aperto</groupId>
       <artifactId>handlebars</artifactId>
       <version>${project.version}</version>
       <scope>test</scope>
