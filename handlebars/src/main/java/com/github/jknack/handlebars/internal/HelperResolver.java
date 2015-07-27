@@ -51,6 +51,36 @@ public abstract class HelperResolver extends BaseTemplate {
    */
   protected Map<String, Object> hash = Collections.emptyMap();
 
+  @Override
+  public Map<String, Object> getHash() {
+    /**
+     * HACK: We're only supporting literals here as all other types need access to the current context. However the 
+     *       context is currently part of the api which does not get passed through the ValueResolvers themselves.
+     *       A nicer solution would be to use a ThreadLocal<Stack<Context>> which would allow to track the context
+     *       independently without to worry about it's availability.
+     */
+    Map<String, Object> result = new LinkedHashMap<String, Object>();
+    ParamType[] supported = new ParamType[] {ParamType.STRING, ParamType.BOOLEAN, ParamType.INTEGER};
+    try {
+      for (Map.Entry<String, Object> entry : hash.entrySet()) {
+        Object value = entry.getValue();
+        for (ParamType type : supported) {
+          if (type.apply(value)) {
+            result.put(entry.getKey(), type.doParse(null, value));
+          }
+        }
+      }
+    } catch (IOException ex) {
+      // won't happen as we're not performing any io
+    }
+    return Collections.unmodifiableMap(result);
+  }
+  
+  @Override
+  public List<Object> getParams() {
+      return Collections.unmodifiableList(params);
+  }
+  
   /**
    * Empty parameters.
    */

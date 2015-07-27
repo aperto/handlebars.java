@@ -20,10 +20,12 @@ package com.github.jknack.handlebars.internal;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import com.github.jknack.handlebars.Context;
@@ -44,6 +46,16 @@ public class TemplateList extends BaseTemplate implements Iterable<Template> {
    */
   private final List<Template> nodes = new LinkedList<Template>();
 
+  @Override
+  public Map<String, Object> getHash() {
+     return Collections.emptyMap();
+  }
+  
+  @Override
+  public List<Object> getParams() {
+    return Collections.emptyList();
+  }
+  
   /**
    * Creates a new template list.
    *

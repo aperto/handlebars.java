@@ -22,6 +22,7 @@ import static org.apache.commons.lang3.Validate.notNull;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.List;
+import java.util.Map;
 
 import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.TagType;
@@ -48,6 +49,16 @@ public class ForwardingTemplate implements Template {
    */
   public ForwardingTemplate(final Template template) {
     this.template = notNull(template, "The template is required.");
+  }
+  
+  @Override
+  public Map<String, Object> getHash() {
+    return template.getHash();
+  }
+
+  @Override
+  public List<Object> getParams() {
+    return template.getParams();
   }
 
   @Override

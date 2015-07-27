@@ -21,6 +21,9 @@ import static org.apache.commons.lang3.Validate.notNull;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.Handlebars;
@@ -41,6 +44,16 @@ public class Text extends BaseTemplate {
   /** The escape's char or empty. */
   private String escapeChar;
 
+  @Override
+  public Map<String, Object> getHash() {
+      return Collections.emptyMap();
+  }
+
+  @Override
+  public List<Object> getParams() {
+    return Collections.emptyList();
+  }
+  
   /**
    * Creates a new {@link Text}.
    *
