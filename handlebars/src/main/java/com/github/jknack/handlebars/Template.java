@@ -35,17 +35,17 @@ public interface Template {
    * An empty template implementation.
    */
   Template EMPTY = new Template() {
-      
+
     @Override
     public Map<String, Object> getHash() {
       return Collections.emptyMap();
     }
-      
+
     @Override
     public List<Object> getParams() {
       return Collections.emptyList();
     }
-    
+
     @Override
     public String text() {
       return "";
@@ -121,21 +121,21 @@ public interface Template {
   };
 
   /**
-   * Returns the hash associated with this template. The hash is accessible in Javascript as well, so it might be used
-   * within a helper.
-   * 
+   * Returns the hash associated with this template. The hash is accessible in Javascript as well,
+   * so it might be used within a helper.
+   *
    * @return   The hash associated with this template. Not <code>null</code>.
    */
   Map<String, Object> getHash();
-  
+
   /**
-   * Returns the parameters associated with this template. The parameters are accessible in Javascript as well, so they
-   * might be used within a helper.
-   * 
+   * Returns the parameters associated with this template. The parameters are accessible in
+   * Javascript as well, so they might be used within a helper.
+   *
    * @return   The parameters associated with this template. Not <code>null</code>.
    */
   List<Object> getParams();
-  
+
   /**
    * Merge the template tree using the given context.
    *

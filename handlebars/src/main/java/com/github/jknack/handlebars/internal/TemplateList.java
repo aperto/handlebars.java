@@ -50,12 +50,12 @@ public class TemplateList extends BaseTemplate implements Iterable<Template> {
   public Map<String, Object> getHash() {
      return Collections.emptyMap();
   }
-  
+
   @Override
   public List<Object> getParams() {
     return Collections.emptyList();
   }
-  
+
   /**
    * Creates a new template list.
    *

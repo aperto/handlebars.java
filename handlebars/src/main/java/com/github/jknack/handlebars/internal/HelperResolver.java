@@ -33,6 +33,8 @@ import com.github.jknack.handlebars.HelperRegistry;
 import com.github.jknack.handlebars.TagType;
 import com.github.jknack.handlebars.Template;
 
+import org.slf4j.LoggerFactory;
+
 /**
  * Base class for {@link Template} who need to resolver {@link Helper}.
  *
@@ -51,16 +53,18 @@ public abstract class HelperResolver extends BaseTemplate {
    */
   protected Map<String, Object> hash = Collections.emptyMap();
 
+  /*
+   * HACK: We're only supporting literals here as all other types need access to the current
+   *       context. However the context is currently part of the api which does not get passed
+   *       through the ValueResolvers themselves. A nicer solution would be to use a
+   *       ThreadLocal<Stack<Context>> which would allow to track the context independently
+   *       without to worry about it's availability.
+   */
   @Override
   public Map<String, Object> getHash() {
-    /**
-     * HACK: We're only supporting literals here as all other types need access to the current context. However the 
-     *       context is currently part of the api which does not get passed through the ValueResolvers themselves.
-     *       A nicer solution would be to use a ThreadLocal<Stack<Context>> which would allow to track the context
-     *       independently without to worry about it's availability.
-     */
     Map<String, Object> result = new LinkedHashMap<String, Object>();
-    ParamType[] supported = new ParamType[] {ParamType.STRING, ParamType.BOOLEAN, ParamType.INTEGER};
+    ParamType[] supported = new ParamType[] {ParamType.STRING,
+            ParamType.BOOLEAN, ParamType.INTEGER};
     try {
       for (Map.Entry<String, Object> entry : hash.entrySet()) {
         Object value = entry.getValue();
@@ -72,15 +76,16 @@ public abstract class HelperResolver extends BaseTemplate {
       }
     } catch (IOException ex) {
       // won't happen as we're not performing any io
+      LoggerFactory.getLogger(HelperResolver.class).error("Only satisfies checkstyle");
     }
     return Collections.unmodifiableMap(result);
   }
-  
+
   @Override
   public List<Object> getParams() {
       return Collections.unmodifiableList(params);
   }
-  
+
   /**
    * Empty parameters.
    */

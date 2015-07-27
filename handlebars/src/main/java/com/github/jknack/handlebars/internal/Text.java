@@ -53,7 +53,7 @@ public class Text extends BaseTemplate {
   public List<Object> getParams() {
     return Collections.emptyList();
   }
-  
+
   /**
    * Creates a new {@link Text}.
    *

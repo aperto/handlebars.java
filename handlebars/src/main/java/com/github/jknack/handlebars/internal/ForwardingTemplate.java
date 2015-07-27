@@ -50,7 +50,7 @@ public class ForwardingTemplate implements Template {
   public ForwardingTemplate(final Template template) {
     this.template = notNull(template, "The template is required.");
   }
-  
+
   @Override
   public Map<String, Object> getHash() {
     return template.getHash();
