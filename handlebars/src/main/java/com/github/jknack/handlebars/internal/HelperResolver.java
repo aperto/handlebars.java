@@ -39,7 +39,7 @@ import com.github.jknack.handlebars.Template;
  * @author edgar.espina
  * @since 0.1.0
  */
-abstract class HelperResolver extends BaseTemplate {
+public abstract class HelperResolver extends BaseTemplate {
 
   /**
    * The parameter list.

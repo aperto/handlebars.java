@@ -45,7 +45,7 @@ import com.github.jknack.handlebars.io.TemplateSource;
  * @author edgar.espina
  * @since 0.1.0
  */
-class Partial extends HelperResolver {
+public class Partial extends HelperResolver {
 
   /**
    * The partial path.

@@ -46,7 +46,7 @@ import com.github.jknack.handlebars.Template;
  * @author edgar.espina
  * @since 0.1.0
  */
-class Variable extends HelperResolver {
+public class Variable extends HelperResolver {
 
   /**
    * The variable's name. Required.

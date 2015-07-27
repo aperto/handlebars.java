@@ -37,7 +37,7 @@ import com.github.jknack.handlebars.Template;
  * @author edgar.espina
  * @since 0.1.0
  */
-class TemplateList extends BaseTemplate implements Iterable<Template> {
+public class TemplateList extends BaseTemplate implements Iterable<Template> {
 
   /**
    * The list of child templates.

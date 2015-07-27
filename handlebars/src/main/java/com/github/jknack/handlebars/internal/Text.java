@@ -31,7 +31,7 @@ import com.github.jknack.handlebars.Handlebars;
  * @author edgar.espina
  * @since 0.1.0
  */
-class Text extends BaseTemplate {
+public class Text extends BaseTemplate {
 
   /**
    * The plain text. Required.

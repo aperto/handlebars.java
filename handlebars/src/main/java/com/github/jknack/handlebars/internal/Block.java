@@ -53,7 +53,7 @@ import com.github.jknack.handlebars.helper.WithHelper;
  * @author edgar.espina
  * @since 0.1.0
  */
-class Block extends HelperResolver {
+public class Block extends HelperResolver {
 
   /**
    * The body template.

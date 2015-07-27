@@ -34,7 +34,7 @@ import com.github.jknack.handlebars.TypeSafeTemplate;
  * @author edgar.espina
  * @since 0.11.0
  */
-class ForwardingTemplate implements Template {
+public class ForwardingTemplate implements Template {
 
   /**
    * The original template.

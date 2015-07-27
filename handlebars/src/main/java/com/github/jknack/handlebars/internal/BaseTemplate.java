@@ -52,7 +52,7 @@ import com.github.jknack.handlebars.TypeSafeTemplate;
  * @author edgar.espina
  * @since 0.1.0
  */
-abstract class BaseTemplate implements Template {
+public abstract class BaseTemplate implements Template {
 
   /**
    * The handlebars object. Required.
